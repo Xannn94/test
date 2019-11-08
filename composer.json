@@ -1,0 +1,22 @@
+{
+    "name": "xannn94/test",
+    "description": "test project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "xannn94",
+            "email": "xannn94@mail.ru"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "twig/twig": "^2.0",
+        "nilportugues/sql-query-builder": "^1.7",
+        "rawr/t-regx": "^0.9.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}

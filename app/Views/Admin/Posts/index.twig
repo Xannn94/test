@@ -1,0 +1,26 @@
+{% extends "Templates/admin.twig" %}
+
+{% block content %}
+    <table class="table table-striped table-dark">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Заголовок</th>
+            <th scope="col">Краткий текст</th>
+            <th scope="col">Действие</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <th scope="row">{{ entity.getId() }}</th>
+                <td>{{ entity.getTitle() }}</td>
+                <td>{{  entity.getPreview }}</td>
+                <td>
+                    <a href="/admin/posts/{{ entity.getId() }}/edit" class="btn btn-primary">Редатировать</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

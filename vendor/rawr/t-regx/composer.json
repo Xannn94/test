@@ -1,0 +1,53 @@
+{
+  "name": "rawr/t-regx",
+  "type": "library",
+  "description": "The most advanced PHP regexp library. Clean, descriptive wrapper functions enhancing PCRE extension methods.",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "pcre",
+    "t-regx",
+    "t-rex",
+    "trex",
+    "regx",
+    "regex",
+    "regexp",
+    "regular",
+    "expression",
+    "tdd",
+    "oop",
+    "clean",
+    "design"
+  ],
+  "autoload": {
+    "files": [
+      "helper/helper.php"
+    ],
+    "psr-4": {
+      "TRegx\\": "src/TRegx"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "test/"
+    ],
+    "psr-4": {
+      "Test\\": "test/"
+    }
+  },
+  "require": {
+    "php": ">=7.1.0",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5",
+    "php-coveralls/php-coveralls": "^2.0",
+    "rawr/cross-data-providers": "^1.0"
+  },
+  "archive": {
+    "exclude": [
+      "/test/**",
+      "/test"
+    ]
+  }
+}

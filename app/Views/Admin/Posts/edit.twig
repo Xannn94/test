@@ -1,0 +1,44 @@
+{% extends "Templates/admin.twig" %}
+
+{% block content %}
+    <div class="jumbotron">
+        {% if flash().get('errors') is array %}
+            <div class="alert alert-danger" role="alert">
+                <h4 class="alert-heading">Ошибка!</h4>
+                <ul>
+                    {% for message in flash.get('errors') %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <h1 class="display-4">Редактирование Поста</h1>
+        <form action="/admin/posts/{{ entity.getId() }}/update" method="post">
+            <input type="hidden" name="_method" value="PUT" />
+            <input type="hidden" id="post_id" name="PostUpdateForm[id]" value="{{ entity.getId() }}" />
+            <div class="form-group">
+                <label for="title">Заголовок</label>
+                <input type="text" class="form-control" id="title" name="PostUpdateForm[title]" value="{{ entity.getTitle() }}">
+            </div>
+            <div class="form-group">
+                <label for="preview">Краткое описание</label>
+                <textarea class="form-control" id="preview" rows="3" name="PostUpdateForm[preview]">{{ entity.getPreview() }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="preview">Полное описание</label>
+                <textarea class="form-control" id="preview" rows="8" name="PostUpdateForm[content]">{{ entity.getContent() }}</textarea>
+            </div>
+
+            <input type="file" name="file" id="file">
+
+            <!-- Drag and Drop container-->
+            <div class="upload-area"  id="uploadfile">
+                <h1>Перетащите файл сюда<br/>Или<br/>Нажмите для выбора файла</h1>
+            </div>
+
+            <p class="lead mt-3">
+                <input type="submit" class="btn btn-primary btn-lg" value="Сохранить"/>
+            </p>
+        </form>
+    </div>
+{% endblock %}
